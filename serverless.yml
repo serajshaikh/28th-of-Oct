@@ -1,0 +1,16 @@
+
+service: serverlessandsns
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  getUser:
+    handler: lambdas/getUser.handler
+    events:
+      - http:
+            path: get-user/{ID}
+            method: GET 
+            cors: true
