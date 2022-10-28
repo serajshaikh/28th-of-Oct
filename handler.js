@@ -1,6 +1,7 @@
-/* 
-// handler.js file
 
+
+// handler.js file
+/* 
 'use strict';
 const { SNS } = require('aws-sdk');
 //aws connection
@@ -57,9 +58,10 @@ exports.subscribe=(event,context,callback)=>{
 
 */
 
+
+
+// serverless.yml file code
 /* 
-
-
 service: serverlessandsns
 frameworkVersion: '3'
 
