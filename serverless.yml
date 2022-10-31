@@ -1,12 +1,33 @@
-
 service: serverlessandsns
 frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: nodejs12.x
+  iamRoleStatements:
+        - Effect: Allow
+          Action:
+              - sns:SetTopicAttributes
+              - sns:Publish
+          Resource: '*'
 
 functions:
+  sendEmail:
+    handler: lambdas/sendEmail.handler
+    events:
+       - http:
+          path: /send-email
+          method: post
+          cors: true
+          
+  subscribeEmail:
+    handler: lambdas/subscribeEmail.handler
+    events:
+       - http:
+          path: /subscribe-email
+          method: post
+          cors: true
+
   getUser:
     handler: lambdas/getUser.handler
     events:
